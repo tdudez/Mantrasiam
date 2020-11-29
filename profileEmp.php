@@ -1,3 +1,35 @@
+<?php 
+    include("action/server.php");
+    $userid = $_GET['id'];
+    $query = "SELECT * FROM employees WHERE id ='$userid' " ;
+    
+    $result = mysqli_query($connect, $query);
+    $row = mysqli_fetch_array($result);
+
+    if(isset($_POST['submit'])){
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $idcard = $_POST['idcard'];
+        $address = $_POST['address'];
+        $tel = $_POST['tel'];
+        $email = $_POST['email'];
+
+        $query = "UPDATE employees 
+                SET firstname = '$firstname', lastname = '$lastname', idcard = '$idcard', address = '$address', tel = '$tel', email = '$email' 
+                WHERE id = '$userid'";
+        $result = mysqli_query($connect, $query);
+        
+        if($result){
+            $_SESSION['success'] = "Edit employee profile successfully";
+            header("Location: emp.php");
+        }
+        else{
+            $_SESSION['error'] = "Something went wrong";
+            header("Location: emp.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,22 +53,24 @@
                     </div>
                     <h6 class="text-right">Edit Profile</h6>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="ชื่อ" value=""></div>
-                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="นามสกุล"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value=""></div>
-                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Phone number"></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="ที่อยู่" value=""></div>
-                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="รหัสประชาชน"></div>
-                </div>
-                
-                <div class="mt-4 text-right">
-                    <button class="btn btn-primary profile-button" type="button">Save Profile</button>
-                </div>
+                <form action="profileEmp.php?id=<?=$userid?>" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="ชื่อ" value="<?=$row['firstname']?>" name="firstname"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="นามสกุล"value=" <?=$row['lastname']?>" name="lastname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="<?=$row['email']?>" name="email"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone number" value="<?=$row['tel']?>" name="tel"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="ที่อยู่" value="<?=$row['address']?>" name="address"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="รหัสประชาชน" value="<?=$row['idcard']?>" name="idcard"></div>
+                    </div>
+                    
+                    <div class="mt-4 text-right">
+                        <button class="btn btn-primary profile-button" type="submit" name="submit">Save Profile</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -1,3 +1,31 @@
+<?php
+    require_once "action/server.php";
+
+    if(isset($_POST['submit'])){
+        $facid = $_POST['element_4'];
+        $date = $_POST['element_2_1'] . "/" . $_POST['element_2_2'] . "/" . $_POST['element_2_3'];
+        
+
+        $query = "INSERT INTO creates (fac_id, date) VALUE ('$facid', '$date')";
+        $result = mysqli_query($connect, $query);
+
+        
+        
+        if($result){
+            $last_id = $connect->insert_id;
+            $_SESSION['success'] = "Add customer successfully";
+            header("Location: additem.php?id=$last_id");
+        }
+        else{
+            $_SESSION['error'] = "Something went wrong";
+            header("Location: menu.php");
+        }
+        
+    }
+
+
+?>
+
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,8 +37,8 @@
     <script type="text/javascript" src="view.js"></script>
     <script type="text/javascript" src="calendar.js"></script>
     <?php
- include "component/head_script.php"
-?>
+        include("component/head_script.php");
+    ?>
 
 </head>
 
@@ -20,7 +48,7 @@
     <div id="form_container">
 
 
-        <form id="form_7683" class="appnitro" method="post" action="">
+        <form id="form_7683" class="appnitro" method="post" action="Orderitem.php">
             <div class="form_description">
                 <h2>การสั่งผลิต</h2>
 
@@ -30,9 +58,20 @@
                 <li id="li_4">
                     <label class="description" for="element_4">ชื่อโรงงานสั่งผลิต </label>
                     <div>
+            
                         <select class="element select small" id="element_4" name="element_4">
-                            <option value="" selected="selected"></option>
-
+                            <option value="" selected="selected">เลือกโรงงาน</option>
+                            <?php 
+                                $query = "SELECT * FROM factories ";
+                                
+                                if ($result = mysqli_query($connect, $query)) {
+                                    while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                                <option value="<?=$row['id']?>" ><?=$row['name']?></option>
+                            <?php
+                                    }
+                                }
+                            ?>
                         </select>
                     </div>
                 </li>
@@ -77,89 +116,18 @@
                             value="" />
                     </div>
                 </li> -->
-                <li id="li_3">
-                    <label class="description" for="element_3">รหัสสั่งผลิต </label>
-                    <div>
-                        <select class="element select small" id="element_3" name="element_3">
-                            <option value="" selected="selected"></option>
+                
 
-                        </select>
-                    </div>
-                </li>
-
-                <li class="buttons">
-                    <input type="hidden" name="form_id" value="7683" />
-
-                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-                </li>
-            </ul>
-        </form>
-        <div id="footer">
-            <div class="row">
-                <div class="col-12">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-
-                                <th>รหัสสินค้า</th>
-                                <th>ชื่อสินค้า</th>
-                                <th>จำนวน</th>
-                                <th>ราคาต่อชิ้น</th>
-                                <th>ราคารวม</th>
-
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <!-- แท็ก php เชื่อม DB ตรงนี้ -->
-
-
-                            <!-- ตัวอย่าง เชื่อม Base -->
-                            <tr>
-                                <td>
-                                    <?//=$row['id']?>
-                                </td>
-                                <td>
-                                    <?//=$row['name']?>
-                                </td>
-                                <td></td>
-                                <td></td>
-
-
-                                <td>
-                                    <!-- <a class="btn btn-warning" href="edittype.php?id=<//?=$row['id']?>">
-								<i class="far fa-edit"></i></a>
-
-							</button> -->
-
-                                    <!-- <button class="btn btn-primary" type="submit">Button</button>
-							<input class="btn btn-primary" type="button" value="Input"> -->
-
-                                </td>
-                            </tr>
-
-
-
-                        </tbody>
-                        <div class="col-12">
-                            <tbody>
-                                <tr>
-                                    <th>ยอดรวม</th>
-                                    <th></th>
-
-                                </tr>
-
-                            </tbody>
-                        </div>
-                    </table>
-                </div>
-
+                
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                
             </div>
+            
+        </div>
         </div>
     </div>
     <img id="bottom" src="bottom.png" alt="">
-
+    
 </body>
 
 </html>

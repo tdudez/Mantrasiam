@@ -13,6 +13,11 @@
         $tel = $_POST['tel'];
         $email = $_POST['email'];
 
+        $filetmp = $_FILES['profilepic']['tmp_name'];
+        $filename = $_FILES['profilepic']['name'];
+
+        move_uploaded_file($filetmp, $filepath);
+
         $user_check = "SELECT * FROM employees WHERE username = '$username' AND idcard = '$idcard' LIMIT 1";
         $result = mysqli_query($connect, $user_check);
         $user = mysqli_fetch_assoc($result);
@@ -25,8 +30,8 @@
         }
         else{
 
-            $query = "INSERT INTO employees (username, password, idcard, firstname, lastname, address, tel, email, userlevel)
-                        VALUE ('$username', '$password', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'm')";
+            $query = "INSERT INTO employees (username, password, idcard, firstname, lastname, address, tel, email, userlevel, pic)
+                        VALUE ('$username', '$password', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'm', '$filename')";
             $result = mysqli_query($connect, $query);
 
             if($result){
@@ -88,7 +93,7 @@
             </div>
             <div class="form-group">
                 <label for="profilepic">Profile pic</label>
-                <input type="file" class="form-control-file" id="profilepic">
+                <input type="file" class="form-control-file" name="profilepic" id="profilepic">
             </div>
             <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block">ADD</button>
             <a href="emp.php"> <button type="button" class="btn btn-secondary btn-lg btn-block my-2" >back</button> </a>

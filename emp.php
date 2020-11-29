@@ -91,7 +91,7 @@ include"component/head_script.php"
 
                                                 </button> -->
                                                 
-                                                <a class="btn btn-warning" href="profileEmp.php" role="button">Edit</a>
+                                                <a class="btn btn-warning" href="profileEmp.php?id=<?=$row['id']?>" role="button">Edit</a>
                                                 <!-- <button class="btn btn-primary" type="submit">Button</button>
                                                 <input class="btn btn-primary" type="button" value="Input"> -->
                                                

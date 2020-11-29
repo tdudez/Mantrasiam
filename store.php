@@ -60,7 +60,7 @@ include"component/head_script.php"
                                             <td><?=$row['amount']?></td>
                                         
                                             <td>
-                                                <a class="btn btn-warning" href="edittype.php?id=<?=$row['id']?>">
+                                                <a class="btn btn-warning" href="editproduct.php?id=<?=$row['id']?>">
                                                     <i class="far fa-edit"></i></a>
                                                 <button type="button" class="btn btn-danger"
                                                     onclick="comfirmDelete(<?=$row['id']?>)">
