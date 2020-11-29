@@ -6,6 +6,25 @@
     $result = mysqli_query($connect, $query);
     $row = mysqli_fetch_array($result);
     
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $price = $_POST['price'];
+        $amount = $_POST['amount'];
+
+        $query = "UPDATE products 
+                SET name = '$name', price = '$price', amount = '$amount'
+                WHERE id = '$prodid'";
+        $result = mysqli_query($connect, $query);
+        
+        if($result){
+            $_SESSION['success'] = "Edit employee profile successfully";
+            header("Location: store.php");
+        }
+        else{
+            $_SESSION['error'] = "Something went wrong";
+            header("Location: store.php");
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +53,20 @@
                                 class="fa fa-long-arrow-left mr-1 mb-1"></i>
                             <h6>Back to home</h6>
                         </div>
-                        <h6 class="text-right">เพื่มวัตถุมงคล</h6>
+                        <h6 class="text-right">แก้ไขวัตถุมงคล</h6>
                     </div>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="editproduct.php?id=<?=$prodid?>" method="post">
                         <div class="row mt-2">
-                            <div class="col-md-6"><input type="text" class="form-control" placeholder="ชื่อสินค้า" name="prodname">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="ชื่อสินค้า" name="name" value="<?=$row['name']?>">
                             </div>
-                            <div class="col-md-6"><input type="text" class="form-control" name="price" placeholder="ราคาขาย">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="ราคาขาย" name="price" value="<?=$row['price']?>">
                             </div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><input type="number" class="form-control" placeholder="จำนวน" name="amount">
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" placeholder="จำนวน" name="amount" value="<?=$row['amount']?>">
                             </div>
                         
                             </div>
@@ -56,7 +78,7 @@
                             </div>
                         </div>
                         <div class="mt-2 text-right">
-                            <button class="btn btn-primary profile-button" type="submit" name="submit">Add</button>
+                            <button class="btn btn-primary profile-button" type="submit" name="submit">Save</button>
                         </div>
                     </form>
                 </div>

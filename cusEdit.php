@@ -1,3 +1,32 @@
+<?php 
+    include("action/server.php");
+    $cusid = $_GET['id'];
+    $query = "SELECT * FROM customers WHERE id ='$cusid' " ;
+    
+    $result = mysqli_query($connect, $query);
+    $row = mysqli_fetch_array($result);
+
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $tel = $_POST['tel'];
+        $email = $_POST['email'];
+
+        $query = "UPDATE customers 
+                SET name = '$name', tel = '$tel', email = '$email' 
+                WHERE id = '$cusid'";
+        $result = mysqli_query($connect, $query);
+        
+        if($result){
+            $_SESSION['success'] = "Edit customer profile successfully";
+            header("Location: customer.php");
+        }
+        else{
+            $_SESSION['error'] = "Something went wrong";
+            header("Location: customer.php");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,20 +50,16 @@
                     </div>
                     <h6 class="text-right">แก้ไข</h6>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-12"><input type="text" class="form-control" placeholder="ชื่อ" value=""></div>
-                    
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value=""></div>
-                    <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="Phone number"></div>
-                </div>
-                
-                <div class="row mt-3">
-                    <div class="col-md-6"><input type="text" class="form-control" placeholder="รหัสลูกค้า" value=""></div>
-                   
-                </div>
-                <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Add</button></div>
+                <form action="cusEdit.php?id=<?=$cusid?>" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-12"><input type="text" class="form-control" placeholder="ชื่อ" value="<?=$row['name']?>" name="name"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="<?=$row['email']?>" name="email"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone number" value="<?=$row['tel']?>" name="tel"></div>
+                    </div>
+                    <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" name="submit">Save</button></div>
+                </form>
             </div>
         </div>
     </div>

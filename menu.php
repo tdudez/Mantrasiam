@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Menu</title>
 
     <?php
     include "component\head_script.php"
@@ -50,19 +50,20 @@
                         <a href="customer.php"
                         class="list-group-item list-group-item-action list-group-item-success">ลูกค้า</a><br>
                         <?php if($_SESSION['userlevel']=='m'){ ?>
-                            <a href="Orderitem.php"
-                                class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a><br>
-                            <a href="store.php"
-                                class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a><br>
-                            <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a><br>
+                            <a href="Orderitem.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a>
+                            <br>
+                            <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a
+                            br>
+                            <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a>
+                            <br>
                         <?php } 
                         else{?>
-                            <a href="OrderDetail.php"
-                                class="list-group-item list-group-item-action list-group-item-success">การสั่งซื้อสินค้า</a><br>
-                            <a href="baibaek.php"
-                                class="list-group-item list-group-item-action list-group-item-success">การเบิกของตัวแทน</a><br>
-                            <a href="store.php"
-                                class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a><br>
+                            <a href="order.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งซื้อสินค้า</a>
+                            <br>
+                            <a href="baibaek.php" class="list-group-item list-group-item-action list-group-item-success">การเบิกของตัวแทน</a>
+                            <br>
+                            <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a>
+                            <br>
                         <?php } ?>
                         <a href="logout.php" class="list-group-item list-group-item-action list-group-item-danger">Logout</a>
                         <br>

@@ -109,16 +109,7 @@
                     </script>
 
                 </li>
-                <!-- <li id="li_3">
-                    <label class="description" for="element_3">รหัสสั่งผลิต </label>
-                    <div>
-                        <input id="element_3" name="element_3" class="element text small" type="text" maxlength="255"
-                            value="" />
-                    </div>
-                </li> -->
-                
-
-                
+                                
                 <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
                 
             </div>

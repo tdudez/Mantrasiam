@@ -87,7 +87,7 @@ include "component/head_script.php"
 
                                                 </button> -->
                                                 
-                                                <a class="btn btn-warning" href="cusEdit.php" role="button">Edit</a>
+                                                <a class="btn btn-warning" href="cusEdit.php?id=<?=$row['id']?>" role="button">Edit</a>
                                                 <!-- <button class="btn btn-primary" type="submit">Button</button>
                                                 <input class="btn btn-primary" type="button" value="Input"> -->
                                                

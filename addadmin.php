@@ -31,7 +31,7 @@
         else{
 
             $query = "INSERT INTO employees (username, password, idcard, firstname, lastname, address, tel, email, userlevel, pic)
-                        VALUE ('$username', '$password', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'm', '$filename')";
+                        VALUE ('$username', '$password', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'e', '$filename')";
             $result = mysqli_query($connect, $query);
 
             if($result){
