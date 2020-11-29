@@ -50,7 +50,7 @@
                         <a href="customer.php"
                         class="list-group-item list-group-item-action list-group-item-success">ลูกค้า</a><br>
                         <?php if($_SESSION['userlevel']=='m'){ ?>
-                            <a href="Orderitem.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a>
+                            <a href="create.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a>
                             <br>
                             <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a
                             br>
@@ -60,7 +60,7 @@
                         else{?>
                             <a href="order.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งซื้อสินค้า</a>
                             <br>
-                            <a href="baibaek.php" class="list-group-item list-group-item-action list-group-item-success">การเบิกของตัวแทน</a>
+                            <a href="take.php" class="list-group-item list-group-item-action list-group-item-success">การเบิกของตัวแทน</a>
                             <br>
                             <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a>
                             <br>

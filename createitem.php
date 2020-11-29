@@ -10,11 +10,11 @@
         $result = mysqli_query($connect, $query);
         if($result){
             $_SESSION['success'] = "Add customer successfully";
-            header("Location: additem.php?id=$creid");
+            header("Location: createitem.php?id=$creid");
         }
         else{
             $_SESSION['error'] = "Something went wrong";
-            header("Location: additem.php?id=$creid");
+            header("Location: createitem.php?id=$creid");
         }
         
     }
@@ -43,7 +43,7 @@
     <div id="form_container">
 
 
-        <form id="form_7683" class="appnitro" method="post" action="additem.php?id=<?=$creid?>">
+        <form id="form_7683" class="appnitro" method="post" action="createitem.php?id=<?=$creid?>">
             <div class="form_description">
                 <h2>การสั่งผลิต</h2>
 
@@ -101,8 +101,6 @@
                         <tbody>
                             
                             <?php 
-                                            
-                                            
                                 $query = "SELECT C.amount, P.id, P.name, P.price FROM createdetail C INNER JOIN products P ON C.prod_id = P.id " ;
                                 $total=0;
                                 
@@ -124,12 +122,11 @@
                                 </td>
                                 <td>
                                     <?=$row['amount']*$row['price']?>
-                            
                                 </td>
                                 
                             </tr>
                             <?php
-                            $total += $row['amount']*$row['price'];
+                                $total += $row['amount']*$row['price'];
                                     }
                                 }    
                             ?>

@@ -2,16 +2,16 @@
     require_once "action/server.php";
 
     if(isset($_POST['submit'])){
-        $cusid = $_POST['cusname'];
+        $facid = $_POST['element_4'];
         $date = $_POST['element_2_1'] . "/" . $_POST['element_2_2'] . "/" . $_POST['element_2_3'];
         
-        $query = "INSERT INTO orders (cus_id, orderdate) VALUE ('$cusid', '$date')";
+        $query = "INSERT INTO creates (fac_id, date) VALUE ('$facid', '$date')";
         $result = mysqli_query($connect, $query);
 
         if($result){
             $last_id = $connect->insert_id;
             $_SESSION['success'] = "successfully";
-            header("Location: orderitem.php?id=$last_id");
+            header("Location: createitem.php?id=$last_id");
         }
         else{
             $_SESSION['error'] = "Something went wrong";
@@ -22,38 +22,43 @@
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ใบสั่งซื้อ</title>
-	<link rel="stylesheet" type="text/css" href="view.css" media="all">
-	<script type="text/javascript" src="view.js"></script>
-	<script type="text/javascript" src="calendar.js"></script>
-	<?php
-	include "component/head_script.php"
-	?>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Order</title>
+    <link rel="stylesheet" type="text/css" href="view.css" media="all">
+    <script type="text/javascript" src="view.js"></script>
+    <script type="text/javascript" src="calendar.js"></script>
+    <?php
+        include("component/head_script.php");
+    ?>
+
 </head>
-<body id="main_body" >
-	
-	<img id="top" src="top.png" alt="">
-	<div id="form_container">
-	
-		<form id="form_7492" class="appnitro"  method="post" action="">
-			<div class="form_description">
-				<h2>ใบสั่งซื้อ</h2>
-				<p></p>
-			</div>						
-			<ul >
-				
-				<li id="li_16" >
-					<label class="description" for="cusname">ชื่อลูกค้า </label>
-					<div>
-						<select class="element select medium" id="cusname" name="cusname"> 
-							<option value="" selected="selected">เลือกชื่อลูกค้า</option>
-							<?php 
-                                $query = "SELECT * FROM customers ";
+
+<body id="main_body">
+
+    <img id="top" src="top.png" alt="">
+    <div id="form_container">
+
+
+        <form id="form_7683" class="appnitro" method="post" action="create.php">
+            <div class="form_description">
+                <h2>การสั่งผลิต</h2>
+
+            </div>
+            <ul>
+
+                <li id="li_4">
+                    <label class="description" for="element_4">ชื่อโรงงานสั่งผลิต </label>
+                    <div>
+            
+                        <select class="element select small" id="element_4" name="element_4">
+                            <option value="" selected="selected">เลือกโรงงาน</option>
+                            <?php 
+                                $query = "SELECT * FROM factories ";
                                 
                                 if ($result = mysqli_query($connect, $query)) {
                                     while ($row = mysqli_fetch_array($result)) {
@@ -63,11 +68,11 @@
                                     }
                                 }
                             ?>
-
-						</select>
-					</div> 
-				</li>		
-				<li id="li_2">
+                        </select>
+                    </div>
+                </li>
+             
+                <li id="li_2">
                     <label class="description" for="element_2">วันที่สั่งผลิต </label>
                     <span>
                         <input id="element_2_1" name="element_2_1" class="element text" size="2" maxlength="2" value=""
@@ -100,15 +105,16 @@
                     </script>
 
                 </li>
-					
-				<li class="buttons">
-						<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-				</li>
-			</ul>
+                                
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                
+            </div>
+            
+        </div>
+        </div>
+    </div>
+    <img id="bottom" src="bottom.png" alt="">
+    
+</body>
 
-		</form>	
-		
-	</div>
-	<img id="bottom" src="bottom.png" alt="">
-	</body>
 </html>
