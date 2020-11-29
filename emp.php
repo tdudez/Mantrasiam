@@ -1,9 +1,21 @@
+<?php
+    session_start();
+
+    
+    if (!$_SESSION['userid']) {
+        $_SESSION['msg'] = "Please log in first";
+        header('location: login.php');
+    }
+    else{
+        
+        
+        ?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emplyees</title>
     <?php
 include"component/head_script.php"
@@ -12,9 +24,9 @@ include"component/head_script.php"
 </head>
 
 <body>
-
+    
     <div class="container">
-
+        
         <div class="col-12 pt-5">
             <div class="row">
                 <div class="card" style="width:100%">
@@ -23,40 +35,56 @@ include"component/head_script.php"
                             <div class="col-6">
                                 <h3>ข้อมูลประธานและตัวแทน</h3>
                             </div>
-                        </div>
-
-                        <br>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>รูป</th>
-                                            <th>รหัสประจำตัว</th>
-                                            <th>ชื่อ</th>
-                                            <th>นามสกุล</th>
-                                            <th>ที่อยู่</th>
-                                            <th>Edit</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <!-- แท็ก php เชื่อม DB ตรงนี้ -->
-
-
-                                        <!-- ตัวอย่าง เชื่อม Base -->
+                            <div class="col-6 text-right">
+                                <?php if($_SESSION['userlevel']=='m'){ ?>
+                                    <a class="btn btn-success" href="addadmin.php"><i class="fas fa-plus"> เพิ่มข้อมูล</i></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            
+                            <br>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>รหัสประจำตัว</th>
+                                                <th>รูป</th>
+                                                <th>ชื่อ</th>
+                                                <th>นามสกุล</th>
+                                                <th>ที่อยู่</th>
+                                                <?php if($_SESSION['userlevel']=='m'){ ?>
+                                                    <th>Edit</th>
+                                                <?php } ?>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                        <?php 
+                                            include("action/server.php");
+                                            
+                                            $query = "SELECT * FROM employees ORDER BY id ASC " ;
+                                            
+                                            
+                                            if ($result = mysqli_query($connect, $query)) {
+                                                while ($row = mysqli_fetch_array($result)) {
+                                        ?>
                                         <tr>
                                             <td>
-                                                <?//=$row['id']?>
+                                                <?=$row['id']?>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <?=$row['firstname']?>
                                             </td>
                                             <td>
-                                                <?//=$row['name']?>
+                                                <?=$row['lastname']?>
                                             </td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-
+                                            <td>
+                                                <?=$row['address']?>
+                                            </td>
+                                            <?php if($_SESSION['userlevel']=='m'){ ?>
                                             <td>
                                                 <!-- <a class="btn btn-warning" href="edittype.php?id=<//?=$row['id']?>">
                                                     <i class="far fa-edit"></i></a>
@@ -68,9 +96,13 @@ include"component/head_script.php"
                                                 <input class="btn btn-primary" type="button" value="Input"> -->
                                                
                                             </td>
+                                            <?php } ?>
                                         </tr>
 
-
+                                        <?php     
+                                                }
+                                            } 
+                                        ?>
 
                                     </tbody>
                                 </table>
@@ -86,3 +118,4 @@ include"component/head_script.php"
 </body>
 
 </html>
+<?php } ?>

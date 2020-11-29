@@ -34,8 +34,8 @@ include"component/head_script.php"
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>รูป</th>
                                             <th>รหัสสินค้า</th>
+                                            <th>รูป</th>
                                             <th>ชื่อสินค้า</th>
                                             <th>ราคาขาย</th>
                                             <th>จำนวน</th>
@@ -43,11 +43,21 @@ include"component/head_script.php"
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                         <!-- แท็ก php เชื่อม DB ตรงนี้ -->
-                                        <!-- <tr>
+                                        <?php 
+                                            include("action/server.php");
+                                            
+                                            $query = "SELECT * FROM products ORDER BY id ASC " ;
+                                            
+                                            
+                                            if ($result = mysqli_query($connect, $query)) {
+                                                while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                        <tr>
                                             <td><?=$row['id']?></td>
+                                            <td></td>
                                             <td><?=$row['name']?></td>
+                                            <td><?=$row['price']?></td>
+                                            <td><?=$row['amount']?></td>
                                         
                                             <td>
                                                 <a class="btn btn-warning" href="edittype.php?id=<?=$row['id']?>">
@@ -58,8 +68,10 @@ include"component/head_script.php"
                                                 </button>
                                             </td>
                                         </tr>
-
-                                 -->
+                                        <?php
+                                                }
+                                            }
+                                        ?>
 
                                     </tbody>
                                 </table>

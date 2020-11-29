@@ -24,19 +24,18 @@
             echo"<script>alert('ID card already exists');</script>";
         }
         else{
-            $passwordenc = md5($password);
 
             $query = "INSERT INTO employees (username, password, idcard, firstname, lastname, address, tel, email, userlevel)
-                        VALUE ('$username', '$passwordenc', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'm')";
+                        VALUE ('$username', '$password', '$idcard', '$firstname', '$lastname', '$address', '$tel', '$email', 'm')";
             $result = mysqli_query($connect, $query);
 
             if($result){
                 $_SESSION['success'] = "Add employee successfully";
-                header("Location: home.php");
+                header("Location: emp.php");
             }
             else{
                 $_SESSION['error'] = "Something went wrong";
-                header("Location: home.php");
+                header("Location: emp.php");
             }
         }
     }
@@ -53,6 +52,7 @@
 </head>
 <body>
     <div class="container">
+    
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -86,7 +86,12 @@
                 <label for="email">E-mail</label>
                 <input type="email" name="email">
             </div>
+            <div class="form-group">
+                <label for="profilepic">Profile pic</label>
+                <input type="file" class="form-control-file" id="profilepic">
+            </div>
             <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block">ADD</button>
+            <a href="emp.php"> <button type="button" class="btn btn-secondary btn-lg btn-block my-2" >back</button> </a>
         </form>
     </div>
     </body>

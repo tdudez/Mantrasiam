@@ -1,3 +1,15 @@
+<?php
+    session_start();
+
+    if (!$_SESSION['userid']) {
+        $_SESSION['msg'] = "Please log in first";
+        header('location: login.php');
+    }
+    else{
+
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,8 +48,8 @@ include "component/head_script.php"
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>รูป</th>
                                             <th>รหัสประจำตัว</th>
+                                            <th>รูป</th>
                                             <th>ชื่อ</th>
                                             <th>เบอร์โทร</th>
                                             <th>ที่อยู่</th>
@@ -46,19 +58,26 @@ include "component/head_script.php"
                                     </thead>
                                     <tbody>
 
-                                        <!-- แท็ก php เชื่อม DB ตรงนี้ -->
-
-
-                                        <!-- ตัวอย่าง เชื่อม Base -->
+                                        <?php 
+                                            include("action/server.php");
+                                            
+                                            $query = "SELECT * FROM customers ORDER BY id ASC " ;
+                                            
+                                            
+                                            if ($result = mysqli_query($connect, $query)) {
+                                                while ($row = mysqli_fetch_array($result)) {
+                                        ?>
                                         <tr>
                                             <td>
-                                                <?//=$row['id']?>
+                                                <?=$row['id']?>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <?=$row['name']?>
                                             </td>
                                             <td>
-                                                <?//=$row['name']?>
+                                                <?=$row['tel']?>
                                             </td>
-                                            <td></td>
-                                            <td></td>
                                             <td></td>
                                            
 
@@ -74,7 +93,10 @@ include "component/head_script.php"
                                                
                                             </td>
                                         </tr>
-
+                                        <?php
+                                                }
+                                            }
+                                        ?>
 
 
                                     </tbody>
@@ -91,3 +113,4 @@ include "component/head_script.php"
 </body>
 
 </html>
+<?php } ?>

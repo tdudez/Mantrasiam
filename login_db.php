@@ -1,14 +1,13 @@
 <?php
     session_start();
 
-    if(isset($_POST['txtuser'])){
-        include('server.php');
+    if(isset($_POST['username'])){
+        include('action/server.php');
 
-        $username = $_POST['txtuser'];
-        $password = $_POST['txtpass'];
-        $passwordenc = md5($password);
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-        $query = "SELECT * FROM employees WHERE username = '$username' AND password = '$passwordenc'";
+        $query = "SELECT * FROM employees WHERE username = '$username' AND password = '$password'";
 
         $result = mysqli_query($connect, $query);
 
@@ -23,6 +22,7 @@
         }
         else{
             echo"<script>alert('Username หรือ Password ไม่ถูกต้อง');</script>";
+            header("Location: login.php");
         }
     }
     else{

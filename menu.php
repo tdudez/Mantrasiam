@@ -1,17 +1,13 @@
 <?php
     session_start();
 
-    if (!isset($_SESSION['username'])) {
+    if (!$_SESSION['userid']) {
         $_SESSION['msg'] = "Please log in first";
         header('location: login.php');
     }
+    else{
 
-    if(isset($_GET[logout])){
-        session_destroy();
-        unset($_SESSION['username']);
-        header('location: login.php');
-
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -49,16 +45,26 @@
                     <div class="card-body">
                         <h3 class="card-title">Menu</h3>
                         <br>
-                        <a href="Emp.php"
+                        <a href="emp.php"
                             class="list-group-item list-group-item-action list-group-item-success">ข้อมูลตัวแทน</a><br>
                         <a href="customer.php"
                         class="list-group-item list-group-item-action list-group-item-success">ลูกค้า</a><br>
-                        <a href="Orderitem.php"
-                            class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a><br>
-                        <a href="store.php"
-                            class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a><br>
-                        <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a><br>
-                        <a href="action/logout.php" class="list-group-item list-group-item-action list-group-item-danger">Logout</a>
+                        <?php if($_SESSION['userlevel']=='m'){ ?>
+                            <a href="Orderitem.php"
+                                class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a><br>
+                            <a href="store.php"
+                                class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a><br>
+                            <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a><br>
+                        <?php } 
+                        else{?>
+                            <a href="OrderDetail.php"
+                                class="list-group-item list-group-item-action list-group-item-success">การสั่งซื้อสินค้า</a><br>
+                            <a href="baibaek.php"
+                                class="list-group-item list-group-item-action list-group-item-success">การเบิกของตัวแทน</a><br>
+                            <a href="store.php"
+                                class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a><br>
+                        <?php } ?>
+                        <a href="logout.php" class="list-group-item list-group-item-action list-group-item-danger">Logout</a>
                         <br>
                         <br>
                     </div>
@@ -77,3 +83,4 @@
 </body>
 
 </html>
+<?php } ?>

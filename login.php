@@ -28,10 +28,10 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                         Login
                     </div>
                     <div class="card-body">
-                        <form action="action/login_db.php" method="POST" class="needs-validation" novalidate>
+                        <form action="login_db.php" method="POST" class="needs-validation" novalidate>
                             <div class="form-group">
-                                <label for="txtuser">Username</label>
-                                <input type="text" class="form-control" id="txtuser" name="txtuser" required>
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" name="username" required>
                                 <div class="valid-feedback">
                                     
                                 </div>
@@ -40,8 +40,8 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txtpass">Password</label>
-                                <input type="password" class="form-control" id="txtpass" name="txtpass" required>
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
                                 <div class="valid-feedback">
                                 
                                 </div>

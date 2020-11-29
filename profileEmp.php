@@ -34,7 +34,9 @@
                     <div class="col-md-6"><input type="text" class="form-control" value="" placeholder="รหัสประชาชน"></div>
                 </div>
                 
-                <div class="mt-4 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="mt-4 text-right">
+                    <button class="btn btn-primary profile-button" type="button">Save Profile</button>
+                </div>
             </div>
         </div>
     </div>
