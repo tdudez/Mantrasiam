@@ -21,7 +21,12 @@ include"component/head_script.php"
                             <div class="col-3">
                                 <h3>ข้อมูลสินค้า</h3>
                             </div>
-                            <div class="col-9 text-right">
+                            <div class="col-7 text-right">
+                                <a href="menu.php">
+                                    <button type="button" class="btn btn-primary">Menu</button>
+                                </a>
+                            </div>
+                            <div class="col-2 text-right">
                                 <a class="btn btn-success" href="storeDetail.php">
                                     <i class="fas fa-plus"> เพิ่มข้อมูล</i></a>
                             </div>

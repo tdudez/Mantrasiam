@@ -36,11 +36,11 @@ include"component/head_script.php"
                                 <h3>ข้อมูลประธานและตัวแทน</h3>
                             </div>
                             <div class="col-6 text-right">
-                                <?php if($_SESSION['userlevel']=='m'){ ?>
-                                    <a class="btn btn-success" href="addadmin.php"><i class="fas fa-plus"> เพิ่มข้อมูล</i></a>
-                                    <?php } ?>
-                                </div>
+                                <a href="menu.php">
+                                    <button type="button" class="btn btn-primary">Menu</button>
+                                </a>
                             </div>
+                        </div>
                             
                             <br>
                             

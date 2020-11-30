@@ -49,9 +49,15 @@
 
 
         <form id="form_7683" class="appnitro" method="post" action="">
-            <div class="form_description">
-                <h2>ใบเบิกวัตถุมงคล</h2>
-
+            <div class="row">
+                <div class="col-6">
+                    <h4>ใบเบิกวัตถุมงคล</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <a href="menu.php">
+                        <button type="button" class="btn btn-primary">Menu</button>
+                    </a>
+                </div>
             </div>
             <ul>
                 

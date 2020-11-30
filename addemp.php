@@ -36,11 +36,11 @@
 
             if($result){
                 $_SESSION['success'] = "Add employee successfully";
-                header("Location: emp.php");
+                header("Location: login.php");
             }
             else{
                 $_SESSION['error'] = "Something went wrong";
-                header("Location: emp.php");
+                header("Location: login.php");
             }
         }
     }
@@ -96,7 +96,7 @@
                 <input type="file" class="form-control-file" name="profilepic" id="profilepic">
             </div>
             <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block">ADD</button>
-            <a href="emp.php"> <button type="button" class="btn btn-secondary btn-lg btn-block my-2" >back</button> </a>
+            <a href="login.php"> <button type="button" class="btn btn-secondary btn-lg btn-block my-2" >back</button> </a>
         </form>
     </div>
     </body>

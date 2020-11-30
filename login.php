@@ -50,6 +50,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
                                 </div>
                             </div>
                             <button type="submit" name="submit" class="btn btn-success">Login</button>
+                            <a href="addemp.php"><button type="button" class="btn btn-secondary">เพิ่มผู้ใช้</button></a>
                         </form>
                     </div>
                 </div>

@@ -41,10 +41,16 @@
 	<div id="form_container">
 	
 		<form id="form_7492" class="appnitro"  method="post" action="">
-			<div class="form_description">
-				<h2>ใบสั่งซื้อ</h2>
-				<p></p>
-			</div>						
+            <div class="row">
+                <div class="col-6">
+                    <h4>ใบสั่งซื้อ</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <a href="menu.php">
+                        <button type="button" class="btn btn-primary">Menu</button>
+                    </a>
+                </div>
+            </div>
 			<ul >
 				
 				<li id="li_16" >

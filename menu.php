@@ -52,8 +52,8 @@
                         <?php if($_SESSION['userlevel']=='m'){ ?>
                             <a href="create.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งผลิต</a>
                             <br>
-                            <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a
-                            br>
+                            <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a>
+                            <br>
                             <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a>
                             <br>
                         <?php } 

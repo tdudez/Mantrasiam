@@ -45,10 +45,17 @@
 
 
         <form id="form_7683" class="appnitro" method="post" action="create.php">
-            <div class="form_description">
-                <h2>การสั่งผลิต</h2>
-
+            <div class="row">
+                <div class="col-6">
+                    <h4>การสั่งผลิต</h4>
+                </div>
+                <div class="col-6 text-right">
+                    <a href="menu.php">
+                        <button type="button" class="btn btn-primary">Menu</button>
+                    </a>
+                </div>
             </div>
+
             <ul>
 
                 <li id="li_4">
@@ -63,7 +70,7 @@
                                 if ($result = mysqli_query($connect, $query)) {
                                     while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <option value="<?=$row['id']?>" ><?=$row['name']?></option>
+                                <option value="<?=$row['id']?>" ><?=$row['fname']?></option>
                             <?php
                                     }
                                 }
