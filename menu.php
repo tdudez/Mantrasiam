@@ -65,6 +65,8 @@
                             <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a>
                             <br>
                         <?php } ?>
+                        <a href="editprofile.php?id=<?=$_SESSION['userid']?>" class="list-group-item list-group-item-action list-group-item-success">แก้ไขข้อมูลส่วนตัว</a>
+                            <br>
                         <a href="logout.php" class="list-group-item list-group-item-action list-group-item-danger">Logout</a>
                         <br>
                         <br>

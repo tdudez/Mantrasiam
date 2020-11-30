@@ -9,12 +9,14 @@
     $filename = $row['pic'];
 
     if(isset($_POST['submit'])){
+        
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $idcard = $_POST['idcard'];
         $address = $_POST['address'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
+        $password = $_POST['password'];
 
         $filetmp = $_FILES['filepic']['tmp_name'];
         $filename = $_FILES['filepic']['name'];
@@ -26,17 +28,17 @@
         move_uploaded_file($filetmp, $filepath);
 
         $query = "UPDATE employees 
-                SET firstname = '$firstname', lastname = '$lastname', idcard = '$idcard', address = '$address', tel = '$tel', email = '$email', pic = '$filename'
+                SET firstname = '$firstname', lastname = '$lastname', idcard = '$idcard', address = '$address', tel = '$tel', email = '$email', pic = '$filename', password = '$password'
                 WHERE id = '$userid'";
         $result = mysqli_query($connect, $query);
         
         if($result){
             $_SESSION['success'] = "Edit employee profile successfully";
-            header("Location: emp.php");
+            header("Location: editprofile.php?id=$userid");
         }
         else{
             $_SESSION['error'] = "Something went wrong";
-            header("Location: emp.php");
+            header("Location: editprofile.php?id=$userid");
         }
     }
 ?>
@@ -62,16 +64,20 @@
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-                        <a href="emp.php">
+                        <a href="menu.php">
                             <h6>Back</h6>
                         </a>
                     </div>
-                    <h6 class="text-right">Edit Profile</h6>
+                    <h6 class="text-right">Edit Your Profile</h6>
                 </div>
-                <form action="profileEmp.php?id=<?=$userid?>" method="post" enctype="multipart/form-data">
+                <form action="editprofile.php?id=<?=$userid?>" method="post" enctype="multipart/form-data">
                     <div class="row mt-2">
+                        <div class="col-md-3"><label for="password">Change password</label></div>
+                        <div class="col-md-3"><input type="password" class="form-control" placeholder="password"value="<?=$row['password']?>" name="password"></div>
+                    </div>
+                    <div class="row mt-3">
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="ชื่อ" value="<?=$row['firstname']?>" name="firstname"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="นามสกุล"value=" <?=$row['lastname']?>" name="lastname"></div>
+                        <div class="col-md-6"><input type="text" class="form-control" placeholder="นามสกุล"value="<?=$row['lastname']?>" name="lastname"></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="<?=$row['email']?>" name="email"></div>
@@ -84,7 +90,7 @@
                     <div class="row mt-3">
                         <div class="col-md-6">
                             <label for="filepic">Profile pic</label>
-                            <input type="file" class="form-control-file" name="filepic" >
+                            <input type="file" class="form-control-file" name="filepic" value="<?=$filename?>">
                         </div>
                     </div>
                     <div class="mt-4 text-right">
