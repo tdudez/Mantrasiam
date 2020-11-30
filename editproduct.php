@@ -6,13 +6,21 @@
     $result = mysqli_query($connect, $query);
     $row = mysqli_fetch_array($result);
     
+    $filename = $row['pic'];
+
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $price = $_POST['price'];
         $amount = $_POST['amount'];
 
+        $filetmp = $_FILES['filepic']['tmp_name'];
+        $filename = $_FILES['filepic']['name'];
+        $filepath = "productpic/" . $filename;
+
+        move_uploaded_file($filetmp, $filepath);
+
         $query = "UPDATE products 
-                SET name = '$name', price = '$price', amount = '$amount'
+                SET name = '$name', price = '$price', amount = '$amount', pic = '$filename'
                 WHERE id = '$prodid'";
         $result = mysqli_query($connect, $query);
         
@@ -55,7 +63,7 @@
                         </div>
                         <h6 class="text-right">แก้ไขวัตถุมงคล</h6>
                     </div>
-                    <form action="editproduct.php?id=<?=$prodid?>" method="post">
+                    <form action="editproduct.php?id=<?=$prodid?>" method="post" enctype="multipart/form-data">
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <input type="text" class="form-control" placeholder="ชื่อสินค้า" name="name" value="<?=$row['name']?>">
@@ -71,9 +79,9 @@
                         
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="filebutton">File Button</label>
+                                <label class="col-md-4 control-label" for="filepic">File Button</label>
                                 <div class="col-md-4">
-                                    <input id="filebutton" name="filebutton" class="input-file" type="file">
+                                    <input type="file" class="form-control-file" name="filepic">
                                 </div>
                             </div>
                         </div>

@@ -74,7 +74,9 @@ include"component/head_script.php"
                                             <td>
                                                 <?=$row['id']?>
                                             </td>
-                                            <td></td>
+                                            <td>
+                                                <img class="rounded-circle " src="profilepic/<?=$row['pic']?>" width="90" height="90">
+                                            </td>
                                             <td>
                                                 <?=$row['firstname']?>
                                             </td>

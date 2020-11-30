@@ -3,6 +3,7 @@
 
     require_once "action/server.php";
 
+    
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -12,9 +13,10 @@
         $address = $_POST['address'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
-
-        $filetmp = $_FILES['profilepic']['tmp_name'];
-        $filename = $_FILES['profilepic']['name'];
+        
+        $filetmp = $_FILES['filepic']['tmp_name'];
+        $filename = $_FILES['filepic']['name'];
+        $filepath = "profilepic/" . $filename;
 
         move_uploaded_file($filetmp, $filepath);
 
@@ -58,7 +60,7 @@
 <body>
     <div class="container">
     
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" name="username" required>
@@ -92,8 +94,8 @@
                 <input type="email" name="email">
             </div>
             <div class="form-group">
-                <label for="profilepic">Profile pic</label>
-                <input type="file" class="form-control-file" name="profilepic" id="profilepic">
+                <label for="filepic">Profile pic</label>
+                <input type="file" class="form-control-file" name="filepic" >
             </div>
             <button type="submit" name="submit" class="btn btn-secondary btn-lg btn-block">ADD</button>
             <a href="login.php"> <button type="button" class="btn btn-secondary btn-lg btn-block my-2" >back</button> </a>

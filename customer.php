@@ -54,7 +54,6 @@ include "component/head_script.php"
                                     <thead>
                                         <tr>
                                             <th>รหัสประจำตัว</th>
-                                            <th>รูป</th>
                                             <th>ชื่อ</th>
                                             <th>เบอร์โทร</th>
                                             <th>ที่อยู่</th>
@@ -76,26 +75,17 @@ include "component/head_script.php"
                                             <td>
                                                 <?=$row['id']?>
                                             </td>
-                                            <td></td>
                                             <td>
                                                 <?=$row['name']?>
                                             </td>
                                             <td>
                                                 <?=$row['tel']?>
                                             </td>
-                                            <td></td>
-                                           
-
                                             <td>
-                                                <!-- <a class="btn btn-warning" href="edittype.php?id=<//?=$row['id']?>">
-                                                    <i class="far fa-edit"></i></a>
-
-                                                </button> -->
-                                                
+                                                <?=$row['address']?>
+                                            </td>
+                                            <td>
                                                 <a class="btn btn-warning" href="cusEdit.php?id=<?=$row['id']?>" role="button">Edit</a>
-                                                <!-- <button class="btn btn-primary" type="submit">Button</button>
-                                                <input class="btn btn-primary" type="button" value="Input"> -->
-                                               
                                             </td>
                                         </tr>
                                         <?php

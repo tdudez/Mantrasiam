@@ -10,9 +10,10 @@
         $name = $_POST['name'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
+        $address = $_POST['address'];
 
         $query = "UPDATE customers 
-                SET name = '$name', tel = '$tel', email = '$email' 
+                SET name = '$name', tel = '$tel', email = '$email', address = '$address'
                 WHERE id = '$cusid'";
         $result = mysqli_query($connect, $query);
         
@@ -46,7 +47,9 @@
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-                        <h6>Back to home</h6>
+                        <a href="customer.php">
+                            <h6>Back</h6>
+                        </a>
                     </div>
                     <h6 class="text-right">แก้ไข</h6>
                 </div>
@@ -57,6 +60,11 @@
                     <div class="row mt-3">
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="<?=$row['email']?>" name="email"></div>
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone number" value="<?=$row['tel']?>" name="tel"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="ที่อยู่" name="address" value="<?=$row['address']?>">
+                        </div>
                     </div>
                     <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" name="submit">Save</button></div>
                 </form>

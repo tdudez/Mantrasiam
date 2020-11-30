@@ -8,8 +8,14 @@
         $price = $_POST['price'];
         $amount = $_POST['amount'];
 
-        $query = "INSERT INTO products (name, price, amount)
-                    VALUE ('$prodname', '$price', '$amount')";
+        $filetmp = $_FILES['filepic']['tmp_name'];
+        $filename = $_FILES['filepic']['name'];
+        $filepath = "productpic/" . $filename;
+
+        move_uploaded_file($filetmp, $filepath);
+
+        $query = "INSERT INTO products (name, price, amount, pic)
+                    VALUE ('$prodname', '$price', '$amount', '$filename')";
         $result = mysqli_query($connect, $query);
 
         if($result){
@@ -52,7 +58,7 @@
                         </div>
                         <h6 class="text-right">เพื่มวัตถุมงคล</h6>
                     </div>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
                         <div class="row mt-2">
                             <div class="col-md-6"><input type="text" class="form-control" placeholder="ชื่อสินค้า" name="prodname">
                             </div>
@@ -65,9 +71,9 @@
                         
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="filebutton">File Button</label>
+                                <label class="col-md-4 control-label" for="filepic">File Button</label>
                                 <div class="col-md-4">
-                                    <input id="filebutton" name="filebutton" class="input-file" type="file">
+                                    <input type="file" class="form-control-file" name="filepic">
                                 </div>
                             </div>
                         </div>

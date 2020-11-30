@@ -7,9 +7,9 @@
         $name = $_POST['name'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
-        
+        $address = $_POST['address'];
 
-        $query = "INSERT INTO customers (name, tel, email) VALUE ('$name', '$tel', '$email')";
+        $query = "INSERT INTO customers (name, tel, email, address) VALUE ('$name', '$tel', '$email', '$address')";
         $result = mysqli_query($connect, $query);
 
         if($result){
@@ -43,7 +43,9 @@
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
-                        <h6>Back to home</h6>
+                        <a href="customer.php">
+                            <h6>Back</h6>
+                        </a>
                     </div>
                     <h6 class="text-right">เพิ่ม</h6>
                 </div>
@@ -63,7 +65,11 @@
                             <input type="text" class="form-control" placeholder="Phone number" name="tel">
                         </div>
                     </div>
-                    
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="ที่อยู่" name="address">
+                        </div>
+                    </div>
                     <div class="mt-4 text-right">
                         <button class="btn btn-primary profile-button" type="submit" name="submit">Add</button>
                     </div>
