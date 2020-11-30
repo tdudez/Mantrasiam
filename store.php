@@ -59,7 +59,7 @@ include"component/head_script.php"
                                         ?>
                                         <tr>
                                             <td><?=$row['id']?></td>
-                                            <td></td>
+                                            <td><img class="rounded-circle " src="productpic/<?=$row['pic']?>" width="90" height="90"></td>
                                             <td><?=$row['name']?></td>
                                             <td><?=$row['price']?></td>
                                             <td><?=$row['amount']?></td>
