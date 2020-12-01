@@ -11,7 +11,6 @@
     if(isset($_POST['submit'])){
         $name = $_POST['name'];
         $price = $_POST['price'];
-        $amount = $_POST['amount'];
 
         $filetmp = $_FILES['filepic']['tmp_name'];
         $filename = $_FILES['filepic']['name'];
@@ -20,7 +19,7 @@
         move_uploaded_file($filetmp, $filepath);
 
         $query = "UPDATE products 
-                SET name = '$name', price = '$price', amount = '$amount', pic = '$filename'
+                SET name = '$name', price = '$price', pic = '$filename'
                 WHERE id = '$prodid'";
         $result = mysqli_query($connect, $query);
         
@@ -74,17 +73,10 @@
                                 <input type="text" class="form-control" placeholder="ราคาขาย" name="price" value="<?=$row['price']?>">
                             </div>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <input type="number" class="form-control" placeholder="จำนวน" name="amount" value="<?=$row['amount']?>">
-                            </div>
-                        
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="filepic">File Button</label>
-                                <div class="col-md-4">
-                                    <input type="file" class="form-control-file" name="filepic">
-                                </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="filepic">File Button</label>
+                            <div class="col-md-4">
+                                <input type="file" class="form-control-file" name="filepic">
                             </div>
                         </div>
                         <div class="mt-2 text-right">

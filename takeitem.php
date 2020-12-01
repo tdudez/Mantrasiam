@@ -6,6 +6,16 @@
         $prodid = $_POST['element_4'];
         $amount = $_POST['amount'];
 
+//stock
+        $query ="SELECT amount FROM products WHERE id=$prodid";
+        $result = mysqli_query($connect, $query);
+        $row = mysqli_fetch_array($result);
+        $newamount = $row['amount'] - $amount;
+        
+        $query = "UPDATE products SET amount = '$newamount' WHERE id ='$prodid'";
+        $result = mysqli_query($connect, $query);
+//add item
+
         $query = "INSERT INTO takedetail (take_id, prod_id, amount) VALUE ('$takid', '$prodid', '$amount')";
         $result = mysqli_query($connect, $query);
         if($result){
@@ -27,7 +37,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>OrderEmp</title>
+    <title>Take</title>
     <link rel="stylesheet" type="text/css" href="view.css" media="all">
     <script type="text/javascript" src="view.js"></script>
     <script type="text/javascript" src="calendar.js"></script>

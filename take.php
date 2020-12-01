@@ -32,7 +32,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>OrderEmp</title>
+    <title>Take</title>
     <link rel="stylesheet" type="text/css" href="view.css" media="all">
     <script type="text/javascript" src="view.js"></script>
     <script type="text/javascript" src="calendar.js"></script>

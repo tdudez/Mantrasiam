@@ -56,6 +56,8 @@
                             <br>
                             <a href="report.php" class="list-group-item list-group-item-action list-group-item-success">รายงาน</a>
                             <br>
+                            <a href="import.php" class="list-group-item list-group-item-action list-group-item-success">นำเข้าสินค้า</a>
+                            <br>
                         <?php } 
                         else{?>
                             <a href="order.php" class="list-group-item list-group-item-action list-group-item-success">การสั่งซื้อสินค้า</a>
@@ -65,7 +67,7 @@
                             <a href="store.php" class="list-group-item list-group-item-action list-group-item-success">คลังวัตุมงคล</a>
                             <br>
                         <?php } ?>
-                        <a href="editprofile.php?id=<?=$_SESSION['userid']?>" class="list-group-item list-group-item-action list-group-item-success">แก้ไขข้อมูลส่วนตัว</a>
+                        <a href="editprofile.php?id=<?=$_SESSION['userid']?>" class="list-group-item list-group-item-action list-group-item-warning">แก้ไขข้อมูลส่วนตัว</a>
                             <br>
                         <a href="logout.php" class="list-group-item list-group-item-action list-group-item-danger">Logout</a>
                         <br>

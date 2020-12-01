@@ -6,6 +6,16 @@
         $prodid = $_POST['element_3'];
         $amount = $_POST['amount'];
 
+//stock
+        $query ="SELECT amount FROM products WHERE id=$prodid";
+        $result = mysqli_query($connect, $query);
+        $row = mysqli_fetch_array($result);
+        $newamount = $row['amount'] - $amount;
+        
+        $query = "UPDATE products SET amount = '$newamount' WHERE id ='$prodid'";
+        $result = mysqli_query($connect, $query);
+//add item
+
         $query = "INSERT INTO orderdetail (ord_id, prod_id, amount) VALUE ('$ordid', '$prodid', '$amount')";
         $result = mysqli_query($connect, $query);
         if($result){

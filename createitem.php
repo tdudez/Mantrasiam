@@ -6,7 +6,7 @@
         $prodid = $_POST['element_3'];
         $amount = $_POST['amount'];
 
-        $query = "INSERT INTO createdetail (cre_id, prod_id, amount) VALUE ('$creid', '$prodid', '$amount')";
+        $query = "INSERT INTO createdetail (cre_id, prod_id, camount) VALUE ('$creid', '$prodid', '$amount')";
         $result = mysqli_query($connect, $query);
         if($result){
             $_SESSION['success'] = "Add customer successfully";
@@ -101,7 +101,7 @@
                         <tbody>
                             
                             <?php 
-                                $query = "SELECT C.amount, P.id, P.name, P.price 
+                                $query = "SELECT C.camount, P.id, P.name, P.price 
                                 FROM createdetail C 
                                 INNER JOIN products P ON C.prod_id = P.id 
                                 WHERE cre_id = $creid 
@@ -119,18 +119,18 @@
                                     <?=$row['name']?>
                                 </td>
                                 <td>
-                                    <?=$row['amount']?>
+                                    <?=$row['camount']?>
                                 </td>
                                 <td>
                                     <?=$row['price']?>
                                 </td>
                                 <td>
-                                    <?=$row['amount']*$row['price']?>
+                                    <?=$row['camount']*$row['price']?>
                                 </td>
                                 
                             </tr>
                             <?php
-                                $total += $row['amount']*$row['price'];
+                                $total += $row['camount']*$row['price'];
                                     }
                                 }    
                             ?>
