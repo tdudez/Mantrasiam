@@ -9,7 +9,7 @@
         $email = $_POST['email'];
         $address = $_POST['address'];
 
-        $query = "INSERT INTO customers (name, tel, email, address) VALUE ('$name', '$tel', '$email', '$address')";
+        $query = "INSERT INTO customers (cname, tel, email, address) VALUE ('$name', '$tel', '$email', '$address')";
         $result = mysqli_query($connect, $query);
 
         if($result){

@@ -13,7 +13,7 @@
         $address = $_POST['address'];
 
         $query = "UPDATE customers 
-                SET name = '$name', tel = '$tel', email = '$email', address = '$address'
+                SET cname = '$name', tel = '$tel', email = '$email', address = '$address'
                 WHERE id = '$cusid'";
         $result = mysqli_query($connect, $query);
         

@@ -76,7 +76,7 @@ include "component/head_script.php"
                                                 <?=$row['id']?>
                                             </td>
                                             <td>
-                                                <?=$row['name']?>
+                                                <?=$row['cname']?>
                                             </td>
                                             <td>
                                                 <?=$row['tel']?>

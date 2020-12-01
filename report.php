@@ -56,14 +56,15 @@
                                     <table class="table table-striped table-condensed">
                                         <thead>
                                             <tr>
-                                                <th class="text-center" width="115px">Customer ID</th>
                                                 <th class="text-center" width="115px">Customer Name</th>
+                                                <th class="text-center" width="115px">Product Name</th>
+                                                <th class="text-center" width="115px">Amount</th>
                                                 <th class="text-center" width="115px">Total Money</th>
                                                 <th class="text-center" width="115px">Date</th>
                                             </tr>
                                         </thead>
                                         <?php
-                                            $query = "SELECT D.amount, C.id, C.name, P.price, O.orderdate
+                                            $query = "SELECT D.amount, C.id, C.cname, P.price, P.name, O.orderdate
                                             FROM orderdetail D
                                             INNER JOIN orders O ON D.ord_id = O.id
                                             INNER JOIN customers C ON O.cus_id = C.id
@@ -74,8 +75,9 @@
                                         ?>   
                                         <tbody>
                                             <tr>
-                                                <td class="text-center" width="150px"><?=$row['id']?></td>
+                                                <td class="text-center" width="150px"><?=$row['cname']?></td>
                                                 <td class="text-center" width="150px"><?=$row['name']?></td>
+                                                <td class="text-center" width="150px"><?=$row['amount']?></td>
                                                 <td class="text-center" width="150px"><?=$row['amount']*$row['price']?></span></td>
                                                 <td class="text-center" width="150px"><?=$row['orderdate']?></span></td>
                                             </tr>

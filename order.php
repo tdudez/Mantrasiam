@@ -64,7 +64,7 @@
                                 if ($result = mysqli_query($connect, $query)) {
                                     while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <option value="<?=$row['id']?>" ><?=$row['name']?></option>
+                                <option value="<?=$row['id']?>" ><?=$row['cname']?></option>
                             <?php
                                     }
                                 }
