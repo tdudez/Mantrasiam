@@ -11,7 +11,6 @@
     if(isset($_POST['submit'])){
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
-        $idcard = $_POST['idcard'];
         $address = $_POST['address'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
@@ -26,7 +25,7 @@
         move_uploaded_file($filetmp, $filepath);
 
         $query = "UPDATE employees 
-                SET firstname = '$firstname', lastname = '$lastname', idcard = '$idcard', address = '$address', tel = '$tel', email = '$email', pic = '$filename'
+                SET firstname = '$firstname', lastname = '$lastname', address = '$address', tel = '$tel', email = '$email', pic = '$filename'
                 WHERE id = '$userid'";
         $result = mysqli_query($connect, $query);
         
@@ -78,8 +77,7 @@
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="Phone number" value="<?=$row['tel']?>" name="tel"></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="ที่อยู่" value="<?=$row['address']?>" name="address"></div>
-                        <div class="col-md-6"><input type="text" class="form-control" placeholder="รหัสประชาชน" value="<?=$row['idcard']?>" name="idcard"></div>
+                        <div class="col-md-12"><input type="text" class="form-control" placeholder="ที่อยู่" value="<?=$row['address']?>" name="address"></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6">

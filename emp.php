@@ -64,7 +64,7 @@ include"component/head_script.php"
                                         <?php 
                                             include("action/server.php");
                                             
-                                            $query = "SELECT * FROM employees ORDER BY id ASC " ;
+                                            $query = "SELECT * FROM employees WHERE sta = 1 ORDER BY id ASC " ;
                                             
                                             
                                             if ($result = mysqli_query($connect, $query)) {
@@ -88,15 +88,8 @@ include"component/head_script.php"
                                             </td>
                                             <?php if($_SESSION['userlevel']=='m'){ ?>
                                             <td>
-                                                <!-- <a class="btn btn-warning" href="edittype.php?id=<//?=$row['id']?>">
-                                                    <i class="far fa-edit"></i></a>
-
-                                                </button> -->
-                                                
                                                 <a class="btn btn-warning" href="profileEmp.php?id=<?=$row['id']?>" role="button">Edit</a>
-                                                <!-- <button class="btn btn-primary" type="submit">Button</button>
-                                                <input class="btn btn-primary" type="button" value="Input"> -->
-                                               
+                                                <a class="btn btn-danger" href="empdel.php?id=<?=$row['id']?>" role="button">delete</a>
                                             </td>
                                             <?php } ?>
                                         </tr>

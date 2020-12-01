@@ -98,7 +98,11 @@
                         </thead>
                         <tbody>
 						<?php 
-                                $query = "SELECT O.amount, P.id, P.name, P.price FROM orderdetail O INNER JOIN products P ON O.prod_id = P.id " ;
+                                $query = "SELECT O.amount, P.id, P.name, P.price 
+                                FROM orderdetail O 
+                                INNER JOIN products P ON O.prod_id = P.id 
+                                WHERE ord_id = $ordid
+                                ";
                                 $total=0;
                                 
                                 if ($result = mysqli_query($connect, $query)) {
@@ -141,7 +145,7 @@
                         </div>
 					</table>
 					<a href="menu.php">
-                        <input id="saveForm" class="button_text" type="submit" name="menu" value="Submit" />
+                        <input id="saveForm" class="button_text" type="submit" name="menu" value="Confirm" />
                     </a>
                 </div>
 

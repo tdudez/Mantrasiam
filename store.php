@@ -51,7 +51,7 @@ include"component/head_script.php"
                                         <?php 
                                             include("action/server.php");
                                             
-                                            $query = "SELECT * FROM products ORDER BY id ASC " ;
+                                            $query = "SELECT * FROM products WHERE sta = 1 ORDER BY id ASC " ;
                                             
                                             
                                             if ($result = mysqli_query($connect, $query)) {
@@ -65,12 +65,8 @@ include"component/head_script.php"
                                             <td><?=$row['amount']?></td>
                                         
                                             <td>
-                                                <a class="btn btn-warning" href="editproduct.php?id=<?=$row['id']?>">
-                                                    <i class="far fa-edit"></i></a>
-                                                <button type="button" class="btn btn-danger"
-                                                    onclick="comfirmDelete(<?=$row['id']?>)">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
+                                                <a class="btn btn-warning" href="editproduct.php?id=<?=$row['id']?>"><i class="far fa-edit"></i></a>
+                                                <a class="btn btn-danger" href="proddel.php?id=<?=$row['id']?>" role="button">delete</a>
                                             </td>
                                         </tr>
                                         <?php

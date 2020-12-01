@@ -101,7 +101,11 @@
                         <tbody>
                             
                             <?php 
-                                $query = "SELECT C.amount, P.id, P.name, P.price FROM createdetail C INNER JOIN products P ON C.prod_id = P.id " ;
+                                $query = "SELECT C.amount, P.id, P.name, P.price 
+                                FROM createdetail C 
+                                INNER JOIN products P ON C.prod_id = P.id 
+                                WHERE cre_id = $creid 
+                                ";
                                 $total=0;
                                 
                                 if ($result = mysqli_query($connect, $query)) {

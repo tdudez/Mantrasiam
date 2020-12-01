@@ -102,7 +102,11 @@
                         <tbody>
                             <?php 
                                             
-                                $query = "SELECT T.amount, P.id, P.name FROM takedetail T INNER JOIN products P ON T.prod_id = P.id " ;
+                                $query = "SELECT T.amount, P.id, P.name 
+                                FROM takedetail T 
+                                INNER JOIN products P ON T.prod_id = P.id 
+                                WHERE take_id = $takid
+                                ";
                                 
                                 if ($result = mysqli_query($connect, $query)) {
                                     while ($row = mysqli_fetch_array($result)) {

@@ -65,7 +65,7 @@ include "component/head_script.php"
                                         <?php 
                                             include("action/server.php");
                                             
-                                            $query = "SELECT * FROM customers ORDER BY id ASC " ;
+                                            $query = "SELECT * FROM customers WHERE sta = 1 ORDER BY id ASC " ;
                                             
                                             
                                             if ($result = mysqli_query($connect, $query)) {
@@ -86,6 +86,7 @@ include "component/head_script.php"
                                             </td>
                                             <td>
                                                 <a class="btn btn-warning" href="cusEdit.php?id=<?=$row['id']?>" role="button">Edit</a>
+                                                <a class="btn btn-danger" href="cusdel.php?id=<?=$row['id']?>" role="button">delete</a>
                                             </td>
                                         </tr>
                                         <?php
