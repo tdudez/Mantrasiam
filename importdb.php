@@ -53,7 +53,7 @@
                                 <td><?=$row['name']?></td>
                                 <td><?=$row['camount']?></td>
                                 <td>
-                                    <a class="btn btn-primary" href="conimport.php?id=<?=$row['idc']?>&creid<?=$creid?>">ยืนยัน</a>
+                                    <a class="btn btn-primary" href="conimport.php?id=<?=$row['idc']?>&creid=<?=$creid?>">ยืนยัน</a>
                                 </td>
                             </tr>
                             <?php

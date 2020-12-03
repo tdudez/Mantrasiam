@@ -39,7 +39,7 @@
                             <form action="import.php" method="post">
                                 <div class="input-group">
                                     <select class="custom-select" id="creid" name="creid" aria-label="Example select with button addon">
-                                        <option selected>เลือกรหัสสั่งผลิต</option>
+                                        <option value="0" selected>เลือกรหัสสั่งผลิต</option>
                                         <?php 
                                             $query = "SELECT * FROM creates WHERE stat = 0";
                                             
