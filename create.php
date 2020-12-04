@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-6 text-right">
                     <a href="menu.php">
-                        <button type="button" class="btn btn-primary">Menu</button>
+                        <button type="button" class="btn btn-primary">เมนู</button>
                     </a>
                 </div>
             </div>
@@ -113,7 +113,7 @@
 
                 </li>
                                 
-                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="สั่งผลิต" />
                 
             </div>
             

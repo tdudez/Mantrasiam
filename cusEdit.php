@@ -50,7 +50,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
                         <a href="customer.php">
-                            <h6>Back</h6>
+                            <h6>กลับ</h6>
                         </a>
                     </div>
                     <h6 class="text-right">แก้ไข</h6>
@@ -68,7 +68,7 @@
                             <input type="text" class="form-control" placeholder="ที่อยู่" name="address" value="<?=$row['address']?>">
                         </div>
                     </div>
-                    <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" name="submit">Save</button></div>
+                    <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit" name="submit">บันทึก</button></div>
                 </form>
             </div>
         </div>

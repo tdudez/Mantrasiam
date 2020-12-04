@@ -77,7 +77,7 @@
                     <input type="number" name="amount"></input>
                 </li>
                 <li>
-                    <button type = "submit" name="submit">ADD</button>
+                    <button type = "submit" name="submit">เพิ่ม</button>
                 </li>
             </ul>
         </form>
@@ -148,7 +148,7 @@
                     </div>
                     </table>
                     <a href="menu.php">
-                        <input id="saveForm" class="button_text" type="submit" name="menu" value="Submit" />
+                        <input id="saveForm" class="button_text" type="submit" name="menu" value="ยืนยัน" />
                     </a>
                 </div>
             </div>

@@ -37,7 +37,7 @@ include "component/head_script.php"
                             </div>
                             <div class="col-4 text-right">
                                 <a href="menu.php">
-                                    <button type="button" class="btn btn-primary">Menu</button>
+                                    <button type="button" class="btn btn-primary">เมนู</button>
                                 </a>
                             </div>
                             <div class="col-2 text-right">
@@ -85,8 +85,8 @@ include "component/head_script.php"
                                                 <?=$row['address']?>
                                             </td>
                                             <td>
-                                                <a class="btn btn-warning" href="cusEdit.php?id=<?=$row['id']?>" role="button">Edit</a>
-                                                <a class="btn btn-danger" href="cusdel.php?id=<?=$row['id']?>" role="button">delete</a>
+                                                <a class="btn btn-warning" href="cusEdit.php?id=<?=$row['id']?>" role="button">แก้ไข</a>
+                                                <a class="btn btn-danger" href="cusdel.php?id=<?=$row['id']?>" role="button">ลบ</a>
                                             </td>
                                         </tr>
                                         <?php

@@ -64,7 +64,7 @@
                     </table>
                     <div class="text-left">
                         <a href="bhome.php?id=<?=$creid?>">
-                            <button type="button" class="btn btn-success">Done</button>
+                            <button type="button" class="btn btn-success">เสร็จสิ้น</button>
                         </a>
                     </div>
                 </>

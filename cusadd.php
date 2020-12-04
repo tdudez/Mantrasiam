@@ -46,7 +46,7 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
                         <a href="customer.php">
-                            <h6>Back</h6>
+                            <h6>กลับ</h6>
                         </a>
                     </div>
                     <h6 class="text-right">เพิ่ม</h6>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-right">
-                        <button class="btn btn-primary profile-button" type="submit" name="submit">Add</button>
+                        <button class="btn btn-primary profile-button" type="submit" name="submit">เพิ่ม</button>
                     </div>
                 </form>
             </div>

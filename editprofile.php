@@ -64,14 +64,14 @@
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="d-flex flex-row align-items-center back"><i class="fa fa-long-arrow-left mr-1 mb-1"></i>
                         <a href="menu.php">
-                            <h6>Back</h6>
+                            <h6>กลับ</h6>
                         </a>
                     </div>
-                    <h6 class="text-right">Edit Your Profile</h6>
+                    <h6 class="text-right">แก้ไขข้อมูลส่วนตัว</h6>
                 </div>
                 <form action="editprofile.php?id=<?=$userid?>" method="post" enctype="multipart/form-data">
                     <div class="row mt-2">
-                        <div class="col-md-3"><label for="password">Change password</label></div>
+                        <div class="col-md-3"><label for="password">เปลี่ยนรหัสผ่าน</label></div>
                         <div class="col-md-3"><input type="password" class="form-control" placeholder="password"value="<?=$row['password']?>" name="password"></div>
                     </div>
                     <div class="row mt-3">
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-right">
-                        <button class="btn btn-primary profile-button" type="submit" name="submit">Save Profile</button>
+                        <button class="btn btn-primary profile-button" type="submit" name="submit">บันทึก</button>
                     </div>
                 </form>
             </div>

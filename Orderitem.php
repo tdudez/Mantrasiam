@@ -87,7 +87,7 @@
                 </li>	
 			
 				<li class="buttons">
-					<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+					<input id="saveForm" class="button_text" type="submit" name="submit" value="เพิ่ม" />
 				</li>
 			</ul>
 
@@ -158,7 +158,7 @@
                         </div>
 					</table>
                         <a href="reciept.php?id=<?=$ordid?>">
-                            <input id="saveForm" class="button_text" type="submit" name="report" value="Confirm" />
+                            <input id="saveForm" class="button_text" type="submit" name="report" value="ยืนยัน" />
                         </a>
                 </div>
 

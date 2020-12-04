@@ -91,7 +91,7 @@
 
 
                 <li class="buttons">
-                    <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+                    <input id="saveForm" class="button_text" type="submit" name="submit" value="เพิ่ม" />
                 </li>
             </ul>
         </form>
@@ -142,7 +142,7 @@
                     
                 </table>
                 <a href="menu.php">
-                    <input class="button_text" type="button" name="confirm" value="Confirm" />
+                    <input class="button_text" type="button" name="confirm" value="ยืนยัน" />
                 </a>
             </div>
             

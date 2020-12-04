@@ -28,12 +28,12 @@
                 <div class="col-12">
                     <div class="col-12 text-right">
                         <a href="menu.php">
-                            <button type="button" class="btn btn-primary">Menu</button>
+                            <button type="button" class="btn btn-primary">เมนู</button>
                         </a>
                     </div>
                     <div class="card mt-2">
                         <div class="card-header text-center">
-                                <strong> Choose Product to import </strong> 
+                                <strong> เลือกรหัสสั่งผลิต </strong> 
                         </div>
                         <div class="card-body">
                             <form action="import.php" method="post">
@@ -96,7 +96,7 @@
                     </table>
                     <div class="text-center">
                         <a href="importdb.php?id=<?=$creid?>">
-                            <button type="button" class="btn btn-primary">Import</button>
+                            <button type="button" class="btn btn-primary">นำเข้า</button>
                         </a>
                     </div>
                 </div>

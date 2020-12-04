@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="card-body">
-                        <h3 class="card-title">Menu</h3>
+                        <h3 class="card-title">เมนู</h3>
                         <br>
                         <a href="emp.php"
                             class="list-group-item list-group-item-action list-group-item-success">ข้อมูลตัวแทน</a><br>

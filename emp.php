@@ -37,7 +37,7 @@ include"component/head_script.php"
                             </div>
                             <div class="col-6 text-right">
                                 <a href="menu.php">
-                                    <button type="button" class="btn btn-primary">Menu</button>
+                                    <button type="button" class="btn btn-primary">เมนู</button>
                                 </a>
                             </div>
                         </div>
