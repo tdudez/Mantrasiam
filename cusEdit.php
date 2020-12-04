@@ -57,7 +57,7 @@
                 </div>
                 <form action="cusEdit.php?id=<?=$cusid?>" method="post">
                     <div class="row mt-2">
-                        <div class="col-md-12"><input type="text" class="form-control" placeholder="ชื่อ" value="<?=$row['name']?>" name="name"></div>
+                        <div class="col-md-12"><input type="text" class="form-control" placeholder="ชื่อ" value="<?=$row['cname']?>" name="name"></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-6"><input type="text" class="form-control" placeholder="Email" value="<?=$row['email']?>" name="email"></div>

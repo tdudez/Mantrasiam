@@ -28,6 +28,9 @@
         }
         
     }
+    if(isset($_POST['report'])){
+        $sta = 1;
+    }
 
 ?>
 
@@ -154,9 +157,9 @@
                             </tbody>
                         </div>
 					</table>
-					<a href="menu.php">
-                        <input id="saveForm" class="button_text" type="submit" name="menu" value="Confirm" />
-                    </a>
+                        <a href="reciept.php?id=<?=$ordid?>">
+                            <input id="saveForm" class="button_text" type="submit" name="report" value="Confirm" />
+                        </a>
                 </div>
 
             </div>

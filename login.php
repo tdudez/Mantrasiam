@@ -15,6 +15,7 @@ $error = isset($_GET['error']) ? $_GET['error'] : '';
 
 <head>
     <?php include "component/head_script.php";?>
+    <title>Login</title>
 </head>
 
 <body onload="<?php if ($error == '1') {echo 'errorlogin()';} ?>">

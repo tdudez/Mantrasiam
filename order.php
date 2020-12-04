@@ -74,7 +74,7 @@
 					</div> 
 				</li>		
 				<li id="li_2">
-                    <label class="description" for="element_2">วันที่สั่งผลิต </label>
+                    <label class="description" for="element_2">วันที่สั่งซื้อ </label>
                     <span>
                         <input id="element_2_1" name="element_2_1" class="element text" size="2" maxlength="2" value=""
                             type="text"> /
